@@ -1,0 +1,179 @@
+<!--
+  Generated template for the DetalleanuncioPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header >
+  <ion-navbar color='dark'>
+    <ion-title>{{user.titulo}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+
+	<ion-list inset>
+
+
+	  <form  (ngSubmit)="publica(user)" [formGroup]="todo">
+	 
+	      <ion-list inset>
+
+
+
+	     
+
+
+	      <div style='height: 10px' ></div>
+
+	      <label color='dark'>Que tipo de servicio ofreces?</label>
+	      
+
+	      <ion-item>
+	    
+	         {{user.categoria.nombre}}
+
+	      
+
+	      </ion-item>
+
+	    
+
+	      <div style='height: 10px' ></div>
+
+	   <!--      <ion-select   multiple=true formControlName="subcategoria" name='subcategoria' id="subcategoria" [(ngModel)]="user.subcategoria" >
+		      <ion-option  *ngFor="let i of subcategoriaslist" [value]="i.id"  >
+		        
+		         {{i.nombre}}
+
+		      </ion-option>
+		      </ion-select> 
+		  -->
+ 
+
+
+	      <label  color='dark'>Cual es tu especialidad?</label>
+
+			<ion-row>
+
+			<ion-col *ngFor="let item of user.sociasubcategoria">
+
+			{{item.subcategoria.nombre}}
+
+			</ion-col>
+
+			</ion-row>
+
+<!-- 	      <ion-item>
+
+	      <ion-select   multiple=true formControlName="subcategoria" name='subcategoria' id="subcategoria" [(ngModel)]="user.subcategoria" >
+
+	      <ion-option  *ngFor="let item of user.sociasubcategoria" [value]="item.id"  >
+	        
+	     {{item.subcategoria.nombre}}
+
+	      </ion-option>
+
+	      </ion-select> 
+	 
+	 
+
+
+	    </ion-item> -->
+
+	    
+
+	      <div style='height: 10px' ></div>
+	      <label color='dark'>Titulo de tu anuncio</label>
+	      <ion-item  >
+	            <ion-input   formControlName="titulo" maxlength="9" name='titulo' id="titulo" type="text" required [(ngModel)] = "user.titulo"></ion-input>
+	      </ion-item>
+
+
+	      <div style='height: 10px' ></div>
+
+	        <label >Descripcion</label>
+	      <ion-item >
+	            <ion-input formControlName="descripcion" maxlength="9" name='descripcion' id="descripcion" type="text" required [(ngModel)] = "user.descripcion"></ion-input>
+	      </ion-item>
+
+
+
+
+	      <div style='height: 10px' ></div>
+
+	      <label >Distrito</label>
+	      
+	      <ion-item >
+
+	      
+	        <ion-select multiple=true  formControlName="distrito" name='user.distrito' id="distrito" [(ngModel)]="user.distrito" >
+	      <ion-option  *ngFor="let i of distrito" [value]="i.id"  >
+	        
+	         {{i.nombre}}
+
+	      </ion-option>
+	      </ion-select> 
+
+	    </ion-item>
+
+	     
+
+	      <div style='height: 10px' ></div>
+
+	      <label   color='dark'>Telefono</label>
+	      <ion-item  >
+	            <ion-input formControlName="telefono" maxlength="9" name='telefono' id="telefono" type="text" required [(ngModel)] = "user.socia.telefono"></ion-input>
+	      </ion-item>
+
+	      <div style='height: 10px' ></div>
+
+	      <label color='dark'>Whatsapp</label>
+	      <ion-item>
+	            <ion-input formControlName="whatsapp" maxlength="9" name='whatsapp' id="whatsapp" type="text" required [(ngModel)] = "user.socia.whatsapp"></ion-input>
+	      </ion-item>
+
+
+	    
+	     
+	      <div style='height: 10px' ></div>
+	      <label  color='dark'>Correo Electronico</label>
+	      <ion-item >
+	            <ion-input  formControlName="email"  name='email' id="loginField" type="email" required [(ngModel)] = "user.socia.email"></ion-input>
+	      </ion-item>
+
+	      <div style='height: 10px'></div>
+
+
+
+	      <label  color='dark'>Costo</label>
+	      <ion-item >
+	            <ion-input formControlName="costo" maxlength="9" name='costo' id="costo" type="number" required [(ngModel)] = "user.costo"></ion-input>
+	      </ion-item>
+
+	     
+
+	      </ion-list>
+
+
+
+	      <button  round ion-button type="submit" color='dark' block [disabled]="!todo.valid">Guardar</button>
+	    </form> 
+
+
+
+
+	<!-- 
+	 <ion-row padding>Si ya tienes cuenta ingresa <span [navPush]="loginPage" style='padding-left: 9px;text-decoration: underline;
+	'> AQUI</span></ion-row>
+	 -->
+	<!-- 
+	<button round ion-button  color='white' block  [navPush]="loginPage" >Ingresar</button> -->
+
+	  <!--    <button round ion-button  color='white' block  [navPush]="registrosociaPage" >Conviertete en socia</button>-->
+
+
+	</ion-list>
+
+
+</ion-content>

@@ -1,0 +1,89 @@
+ <ion-menu persistent="true" [content]="content" side="left" >
+ 
+  
+
+
+  <ion-toolbar  >
+    
+
+      <ion-title>
+
+        <div  style='max-width:150px;'  >
+        <img src="{{host}}{{logo}}">
+        </div>
+
+      </ion-title>
+
+
+    
+
+  </ion-toolbar>
+ 
+  <ion-content>
+
+
+   <ion-list >
+  
+
+    </ion-list> 
+
+
+    <ion-list  style='padding-top:45px;'  >
+
+
+  
+       <button ion-item *ngFor="let p of pageslogeado" color='default' (click)="openPage(p)" >
+       {{p.title}}
+      </button>
+
+    
+
+   
+      <button ion-item *ngFor="let p of pageslogeadosocia"  (click)="openPage(p)" color='dark'>
+       {{p.title}}
+      </button>
+ 
+     
+<!-- 
+ <a ion-item style='
+    text-decoration: none;' href='#' (click)="sacasexo()"> Escoge tu género  <img style='width: 24px;
+    float: right;'src="assets/icono-menu.png"></a> -->
+
+
+
+      <a color='light' ion-item style='
+    text-decoration: none;' href="https://api.whatsapp.com/send?phone=51910759370&text=Hola"> Contáctenos <ion-icon name="logo-whatsapp" style='color: #25d366;float:right;'></ion-icon></a>
+
+    <a color='light' ion-item style='text-decoration: none;' href="tel:+910759370"> Llamanos <ion-icon name="call" style='color: #000;float:right;'></ion-icon></a>
+
+<button color='light'  ion-item (click)="salir()">
+        Salir
+      </button>
+
+    </ion-list>
+
+<ion-list >
+  
+          
+
+      
+    </ion-list>
+
+    
+
+   
+
+      
+
+
+  
+
+
+  </ion-content>
+ 
+</ion-menu>
+
+
+
+<ion-nav id="nav" [root]="xxxPage" #content swipe-back-enabled="true"></ion-nav>
+ 

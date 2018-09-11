@@ -1,0 +1,181 @@
+
+ <ion-header>
+    <ion-navbar color='{{tema}}'>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+
+      <ion-title>
+
+        <div style='max-width: 146px;'>
+        <img src="{{host}}{{logo}}">
+        </div>
+
+      </ion-title>
+
+         
+
+        <!-- <ion-buttons end>
+      <button  end ion-button (click)="continuar()">
+        <ion-icon style='font-size: 2.2em;' name="heart"></ion-icon>
+      </button>
+    </ion-buttons>  -->
+
+
+    </ion-navbar>
+  </ion-header>
+
+  
+<ion-content>
+
+
+<ion-slides *ngIf="photo1" autoplay="2000"  speed="4000" pager paginationType='bullets'>
+
+
+  <ion-slide ng-click='iradetalle(1)'>
+
+    <img src="{{host}}{{photo1}}" alt="">
+  </ion-slide>
+
+  <ion-slide ng-click='iradetalle(2)'>
+    <img src="{{host}}{{photo2}}" alt="">
+  </ion-slide>
+
+
+  <ion-slide ng-click='iradetalle(3)'>
+    <img src="{{host}}{{photo3}}" alt="">
+  </ion-slide>
+
+  <ion-slide ng-click='iradetalle(4)'>
+    <img src="{{host}}{{photo4}}" alt="">
+  </ion-slide>
+
+
+</ion-slides>
+
+<!-- 
+<ion-slides *ngIf="photo5" effect='fade' autoplay="2000"  speed="3000" style='margin-top: -2px;'>
+
+
+  <ion-slide>
+
+    <a href='{{link5}}'>
+    <img src="{{host}}{{photo5}}" alt="">
+    </a>
+
+  </ion-slide>
+  <ion-slide>
+
+    <a href='{{link6}}'>
+    <img src="{{host}}{{photo6}}" alt="">
+    </a>
+
+  </ion-slide>
+  <ion-slide>
+    <a href='{{link7}}'>
+    <img src="{{host}}{{photo7}}" alt="">
+    </a>
+  </ion-slide>
+
+  <ion-slide>
+    <a href="{{link8}}">
+    <img src="{{host}}{{photo8}}" alt="">
+    </a>
+  </ion-slide>
+
+
+  
+</ion-slides> -->
+
+
+<!-- <div style='position: absolute;
+    z-index: 1000;'>
+ <ion-item *ngFor = 'let c of subcategorias'>
+    <ion-avatar item-start>
+      <img src="https://www.wahu.com.au/assets/webshop/cms/76/5576.jpg">
+    </ion-avatar>
+    <h2>{{c.nombre}}</h2>
+     <h3>Don't Know What To Do!</h3>
+     <p>{{c.descripcion}}</p>
+  </ion-item>
+
+</div>
+ -->
+
+
+ <div>
+   
+   <ion-searchbar [(ngModel)]="searchTerm" (click)='search(subcategorias)'
+ ></ion-searchbar>
+  <ion-list>
+    <ion-item *ngFor = 'let c of _subcategorias'>
+    <ion-avatar item-start>
+      <img src="{{host}}{{c.photo_icono}}">
+    </ion-avatar>
+    <h2>{{c.nombre}}</h2>
+ <!--     <h3>S/. {{c.precio}}</h3>
+  -->    <p>{{c.descripcion}}</p>
+  </ion-item>
+  </ion-list>
+
+ </div>
+
+
+
+<div style='margin-top:-2px;'>
+
+
+
+
+<ion-row>
+
+<ion-col *ngFor = 'let c of categoria' (click)='iraventas(c)' col-4 style='margin-bottom: 5px;'>
+
+<div>
+ <img ng-if='c.photo' style='border-radius:5px;' src="{{host}}{{c.photo}}"  class=''>
+
+ <!-- <div class='categoria'></div>
+ -->
+         <p>{{c.nombre}}</p>
+</div>
+       
+       
+         
+      
+
+<!--       <div style='background: #234;position: absolute;'></div>
+ -->
+
+</ion-col>
+
+
+
+
+</ion-row>
+
+
+
+
+
+ </div>
+
+ 
+<!-- <div style='height: 50px'></div> 
+ -->
+</ion-content>
+
+
+
+  
+<ion-footer>
+  <ion-toolbar>
+    
+<button class="animated  fadeInUp" ion-button full round color="light"  (click)='continuar()'>
+
+Publica tu anuncio
+
+     </button> 
+
+  </ion-toolbar>
+</ion-footer>

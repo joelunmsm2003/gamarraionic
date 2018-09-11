@@ -1,0 +1,183 @@
+<!--
+  Generated template for the RegistroPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+    <ion-toolbar color='dark'>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+      <ion-title>Publica tu anuncio</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+
+
+<ion-content>
+
+
+
+      
+      <ion-col col-6 *ngFor="let libraryItem of library" (click)="itemTapped($event, libraryItem)">
+      <img [src]="libraryItem.thumbnailURL | cdvphotolibrary">
+      </ion-col>
+
+ 
+
+
+
+<ion-list inset>
+
+ <button  round ion-button  color='dark' (click)='tomafoto()' block>Tomar Foto</button>
+
+  <button  round ion-button  color='dark' (click)='fotolibreria()' block>Foto Libreria</button>
+
+<!--     <button  round ion-button  color='dark' (click)='cortar()' block> Crop</button> -->
+
+      <!--   <button  round ion-button  color='dark' (click)='subir()' block> Subir</button>
+ -->
+
+<img src="{{myphoto}}">
+     
+  <form  (ngSubmit)="publica(user)" [formGroup]="todo">
+ 
+      <ion-list inset>
+
+
+
+      <label  color='dark'>Nombre y Apellidos</label>
+      <ion-item  >
+            <ion-input   formControlName="nombre" maxlength="40" name='nombre' id="nombre" type="text" required [(ngModel)] = "user.nombre"></ion-input>
+      </ion-item>
+
+
+      <div style='height: 10px' ></div>
+
+      <label color='dark'>Que tipo de servicio ofreces?</label>
+      
+
+      <ion-item>
+      <ion-select   formControlName="categoria" name='categoria' id="categoria" [(ngModel)]="user.categoria" (ionChange)="cambia(user.categoria)">
+      <ion-option *ngFor="let item of categoriaslist" [value]="item.id"  >
+        
+         {{item.nombre}}
+
+      </ion-option>
+      </ion-select>
+
+      </ion-item>
+
+    
+
+      <div style='height: 10px' ></div>
+
+
+      <label *ngIf='user.categoria' color='dark'>Cual es tu especialidad?</label>
+      <ion-item *ngIf='user.categoria'>
+
+
+
+ 
+        <ion-select   multiple=true formControlName="subcategoria" name='user.subcategoria' id="subcategoria" [(ngModel)]="user.subcategoria" >
+      <ion-option  *ngFor="let i of subcategoriaslist" [value]="i.id"  >
+        
+         {{i.nombre}}
+
+      </ion-option>
+      </ion-select> 
+ 
+ 
+
+
+    </ion-item>
+
+    
+
+      <div style='height: 10px' ></div>
+      <label *ngIf='user.subcategoria' color='dark'>Titulo de tu anuncio</label>
+      <ion-item  *ngIf='user.subcategoria'>
+            <ion-input   formControlName="titulo" maxlength="9" name='titulo' id="titulo" type="text" required [(ngModel)] = "user.titulo"></ion-input>
+      </ion-item>
+
+
+      <div style='height: 10px' ></div>
+
+        <label *ngIf='user.subcategoria' color='dark'>Descripcion</label>
+      <ion-item *ngIf='user.subcategoria'>
+            <ion-input formControlName="descripcion" maxlength="9" name='descripcion' id="descripcion" type="text" required [(ngModel)] = "user.descripcion"></ion-input>
+      </ion-item>
+
+
+
+
+      <div style='height: 10px' ></div>
+
+      <label  *ngIf='user.descripcion' color='dark'>Distrito</label>
+      
+      <ion-item *ngIf='user.descripcion'>
+
+      
+        <ion-select multiple=true  formControlName="distrito" name='user.distrito' id="distrito" [(ngModel)]="user.distrito" >
+      <ion-option  *ngFor="let i of distrito" [value]="i.id"  >
+        
+         {{i.nombre}}
+
+      </ion-option>
+      </ion-select> 
+
+    </ion-item>
+
+     
+
+      <div style='height: 10px' ></div>
+
+      <label *ngIf='user.distrito'  color='dark'>Telefono</label>
+      <ion-item *ngIf='user.distrito' >
+            <ion-input formControlName="telefono" maxlength="9" name='telefono' id="telefono" type="text" required [(ngModel)] = "user.telefono"></ion-input>
+      </ion-item>
+
+      <div style='height: 10px' ></div>
+
+      <label *ngIf='user.distrito' color='dark'>Whatsapp</label>
+      <ion-item *ngIf='user.distrito'>
+            <ion-input formControlName="whatsapp" maxlength="9" name='whatsapp' id="whatsapp" type="text" required [(ngModel)] = "user.whatsapp"></ion-input>
+      </ion-item>
+     
+      <div style='height: 10px' ></div>
+      <label *ngIf='user.distrito' color='dark'>Correo Electronico</label>
+      <ion-item *ngIf='user.distrito'>
+            <ion-input  formControlName="email"  name='email' id="loginField" type="email" required [(ngModel)] = "user.email"></ion-input>
+      </ion-item>
+
+      </ion-list>
+
+      <button  round ion-button type="submit" color='dark' block [disabled]="!todo.valid">Publicar</button>
+    </form> 
+
+
+
+
+<!-- 
+ <ion-row padding>Si ya tienes cuenta ingresa <span [navPush]="loginPage" style='padding-left: 9px;text-decoration: underline;
+'> AQUI</span></ion-row>
+ -->
+<!-- 
+<button round ion-button  color='white' block  [navPush]="loginPage" >Ingresar</button> -->
+
+  <!--    <button round ion-button  color='white' block  [navPush]="registrosociaPage" >Conviertete en socia</button>-->
+
+
+</ion-list>
+
+
+
+</ion-content>
+
+<!-- <mytabs></mytabs>
+
+
+ -->
